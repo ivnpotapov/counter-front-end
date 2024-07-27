@@ -3,8 +3,6 @@ import { TonConnectButton } from '@tonconnect/ui-react';
 import { useMainContract } from './hooks/useMainContract';
 import { useTonConnect } from './hooks/useTonConnect';
 
-const walletAddress = 'kQASVWZJJQ-tx0JUlgfEWCGf3cxQN67kU_LpVl6oBOjW0ejC';
-
 function App() {
   const {
     contract_address,

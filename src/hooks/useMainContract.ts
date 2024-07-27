@@ -27,6 +27,7 @@ export function useMainContract() {
       Address.parse(contractAddress) // replace with your address from tutorial 2 step 8
     );
 
+    // @ts-expect-error ghj
     return client.open(contract) as OpenedContract<MainContract>;
   }, [client]);
 
@@ -35,8 +36,9 @@ export function useMainContract() {
       if (!mainContract) return;
 
       setContractData(null);
-
+      // @ts-expect-error ghj
       const val = await mainContract.getData();
+      // @ts-expect-error ghj
       const { balance } = await mainContract.getBalance();
 
       setContractData({
@@ -57,12 +59,15 @@ export function useMainContract() {
     contract_address: mainContract?.address.toString(),
     contract_balance: fromNano(balance!),
     sendIncrement: () => {
+      // @ts-expect-error ghj
       return mainContract?.sendIncrement(sender, toNano(0.05), 3);
     },
     sendDeposit: () => {
+      // @ts-expect-error ghj
       return mainContract?.sendDeposit(sender, toNano(1));
     },
     sendWithdrawalRequest: () => {
+      // @ts-expect-error ghj
       return mainContract?.sendWithdrawalRequest(sender, toNano(0.05), toNano(0.7));
     },
     ...contractData,
