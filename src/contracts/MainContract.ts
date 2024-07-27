@@ -116,3 +116,5 @@ export class MainContract implements Contract {
     });
   }
 }
+
+// some changes
